@@ -1,18 +1,42 @@
 [{
   "firstName": "Иван",
   "lastName": "Иванов",
-  "address": "г.Москва, ул. Алиева,2",
-  "phoneNumber": "812 123-1234"
+  "address": {
+  	"streetAddress":"ул. Алиева3",
+  	"city": "Москва",
+  	"postalCode": "101101"
+  },
+  "phoneNumber": [
+  	"812 123-1234", 
+  	"916 123-1342"
+	]
 }, 
 {
   "firstName": "Иван1",
   "lastName": "Иванов1",
-  "address": "г.Москва, ул. Алиева,21",
-  "phoneNumber": "812 123-123411"
+   "address": {
+  	"streetAddress":"ул. Алиева2",
+  	"city": "Питер",
+  	"postalCode": "1011234"
+  },
+  "phoneNumber": [
+  	"812 123-1234", 
+  	"916 123-1342",
+  	"812 123-1234", 
+  	"916 123-1342"
+	]
 }, 
 {
   "firstName": "Иван2",
   "lastName": "Иванов2",
-  "address": "г.Москва, ул. Алиева,222",
-  "phoneNumber": "812 123-123422"
+    "address": {
+  	"streetAddress":"ул. Алиева5",
+  	"city": "Питер2",
+  	"postalCode": "102234"
+  },
+  "phoneNumber": [
+  	"812 123-1234", 
+  	"916 123-1342",
+  	"916 123-1342"
+	]
 }]
