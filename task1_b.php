@@ -7,7 +7,7 @@
 
 <?php
  $a = (int)$_POST['a'];
- $fib1 = 1;
+ $fib1 = 0;
  $fib2 = 1;
  $check = 1;
  while($check){
