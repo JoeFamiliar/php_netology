@@ -22,7 +22,7 @@
 				}
 				else
 					$phone = $contact['phoneNumber'];
-				echo "<tr><td>".$contact['firstName']."</td><td>".$contact['lastName']."</td><td>".$contact['address']['streetAddress']."</td><td>".$contact['address']['city']."</td><td>".$contact['address']['postalCode']."</td><td>".$phone."</td></tr>";
+				echo "<tr><td>".$contact['firstName']."</td><td>".$contact['lastName']."</td><td>".$contact['address']['city']."</td><td>".$contact['address']['streetAddress']."</td><td>".$contact['address']['postalCode']."</td><td>".$phone."</td></tr>";
 			}
 			?>
 		</table>

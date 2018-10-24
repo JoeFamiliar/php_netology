@@ -39,4 +39,14 @@
   	"916 123-1342",
   	"916 123-1342"
 	]
+}, 
+{
+  "firstName": "Иван2",
+  "lastName": "Иванов2",
+    "address": {
+    "streetAddress":"ул. Алиева5",
+    "city": "Питер2",
+    "postalCode": "102234"
+  },
+  "phoneNumber": "812 123-1234" 
 }]
