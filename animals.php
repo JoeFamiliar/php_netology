@@ -46,10 +46,13 @@ shuffle($first);
 shuffle($second);
  
 $new_animals = [];
- 
+$result = '';
 for($i = 0; $i < count($first); $i++){
-    $final_result[]= $first[$i] . ' ' . $senond[$i];  
+    $new_animals[]= $first[$i] . ' ' . $senond[$i];
+    $result .= $first[$i] . ' ' . $senond[$i].", ";
 }
+
+echo mb_substr($result, 0, -1);
  
-var_dump($final_result);
+var_dump($new_animals);
 ?>
