@@ -25,8 +25,31 @@ $continents = [
         'American Elk',
         'Racoon',
         'Skunk',
-        'Alligator mississippiensis',
+        'Mississippiensis Alligator ',
         'Caribou'
     ]
 ];
+
  
+$two_words_animals = [];
+foreach($continents as $continent => $animals){
+    foreach($animals as $animal){
+    	if(strpos($animal, " ")){
+    		$two_words_animals[] = $animal;
+    		$parts = explode(' ', $name);
+		    $first[] = $parts[0];
+		    $second[] = $parts[1];
+    	}
+    }
+}
+shuffle($first);
+shuffle($second);
+ 
+$new_animals = [];
+ 
+for($i = 0; $i < count($first); $i++){
+    $final_result[]= $first[$i] . ' ' . $senond[$i];  
+}
+ 
+var_dump($final_result);
+?>
