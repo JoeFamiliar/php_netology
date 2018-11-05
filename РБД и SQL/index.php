@@ -1,5 +1,5 @@
 <?php 
-$pdo = new PDO("mysql:host=localhost;dbname=sglobal", "akhripko", "neto1903");
+$pdo = new PDO("mysql:host=localhost;dbname=global", "akhripko", "neto1903");
 $sql = "SELECT * FROM books";
 $text = "<table>";
 foreach ($pdo->query($sql) as $row){
