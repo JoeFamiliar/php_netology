@@ -1,11 +1,12 @@
 <?php 
 $pdo = new PDO("mysql:host=localhost;dbname=global", "akhripko", "neto1903");
+$pdo->query("SET CHARACTER SET 'utf8'");
 $sql = "SELECT * FROM books";
 $text = "<table>";
 foreach ($pdo->query($sql) as $row){
 	$text .= "<tr>";
-	foreach($row as $column){
-		$text .= "<td>".$column."</td>";
+	for($i = 0; $i < count($row)/2; $i++){
+		$text .= "<td>".$row[$i]."</td>";
 	}
 	$text .= "</tr>";
 }
