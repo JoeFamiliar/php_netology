@@ -14,7 +14,7 @@ class Car {
 		$this->speed = $speed;
 	}
 	public function view() {
-		echo "Ваше авто марки ".$mark." цвета ".$color." и типом кузова ".$type." c коробкой передач типа ".$transmission." способно разгоняться до ".$speed." км/ч."
+		echo "Ваше авто марки ".$mark." цвета ".$color." и типом кузова ".$type." c коробкой передач типа ".$transmission." способно разгоняться до ".$speed." км/ч.";
 	}
 }
 
