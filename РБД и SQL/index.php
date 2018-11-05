@@ -13,6 +13,7 @@ $text .= "</table>";
 ?>
 <html>
 	<head>
+		<meta content="text/html; charset=utf-8">
 	</head>
 	<body>
 	<?php echo $text; ?>
