@@ -13,7 +13,7 @@ class Car {
 		$this->transmission = $transmission;
 		$this->speed = $speed;
 	}
-	public function view {
+	public function view() {
 		echo "Ваше авто марки ".$mark." цвета ".$color." и типом кузова ".$type." c коробкой передач типа ".$transmission." способно разгоняться до ".$speed." км/ч."
 	}
 }
@@ -38,7 +38,7 @@ class Tv {
 		$this->size = $size;
 		$this->price = $price;
 	}
-	public function getPrice {
+	public function getPrice() {
 		echo "Телевизор марки ".$mark." с диагональю ".$size." дюймов и типом экрана ".$type." cтоит ".$price." рублей."
 	}
 }
@@ -61,7 +61,7 @@ class Pen {
 		$this->material = $material;
 		$this->type = $type;
 	}
-	public function getColor {
+	public function getColor() {
 		echo ($this->type === 'одноразовая') ? ("К сожалению, Ваша ручка марки ".$mark." сделанная из материала ".$material." может писать только цветом, который идёт в комплектации, т.к. она одноразовая") : ("Мы рады Вам сообщить, что Вы можете заменить пасту в Вашей ручке марки ".$mark." сделанной из материала ".$material." на любую, т.к. она ".$type);
 	}
 }
