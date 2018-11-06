@@ -44,7 +44,7 @@ class Comment {
 	}
 }
 
-$arr_comments[] = new Comment('blah blah');
+$arr_comments[] = new Comment('blah blah'); // не знаю, как лучше его передать в класс News, через global?
 $news[] = new News('Author', 'HeaderNews', 'Text'); 
 ?>
 <html>
