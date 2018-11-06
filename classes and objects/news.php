@@ -5,15 +5,16 @@ class News
 	private $title;
 	private $text;
 	private $createdAt;
-	private $newsId;
+	private $newsId
+	private static $newsCount = 0;
 
 	public function __construct($author, $title, $text){
 		$this->author = $author;
 		$this->title = $title;
 		$this->text = $text;
 		$this->createdAt = date("m.d.y");
-
-		$this->newsId = count($news)+1; //при условии, что $news нужно сделать доступным вездем, т.е. глобальным или что-то в этом роде
+		self::$newsCount++;
+		$this->newsId = self::$newsCount;
 	}
 
 	public function getAuthor() {
