@@ -4,12 +4,15 @@ class News {
 	private $newsheader;
 	private $text;
 	private $date;
+	private $newsId;
 
 	public function __construct($author, $newsheader, $text){
 		$this->author = $author;
 		$this->newsheader = $newsheader;
 		$this->text = $text;
 		$this->date = date("m.d.y");
+
+		$this->newsId = count($news)+1; //при условии, что $news нужно сделать доступным вездем, т.е. глобальным или что-то в этом роде
 	}
 
 	public function getAuthor() {
@@ -38,13 +41,15 @@ class News {
 
 class Comment {
 	private $comment;
+	private $idNews;
 
-	public function __construct($comment){
+	public function __construct($comment, $idNews){
 		$this->comment = $comment;
+		$this->idNews = $idNews;
 	}
 }
 
-$arr_comments[] = new Comment('blah blah'); // не знаю, как лучше его передать в класс News, через global?
+$arr_comments[] = new Comment('comment', 'idNews'); // не знаю, как лучше его передать в класс News, обратиться через global? сами значения будут заполняться при нажатии пользователем кнопки "отправить", где comment это набранный юзером текст, а idNews из скрытого поля самой новости, который берётся из объекта News->newsId
 $news[] = new News('Author', 'HeaderNews', 'Text'); 
 ?>
 <html>
@@ -53,7 +58,7 @@ $news[] = new News('Author', 'HeaderNews', 'Text');
 	</head>
 	<body>
 	<?php 
-	// тут останется перебирать массив объектов $news и вытягивать значения переменных для заполнения соответствующих полей каждого нового облака новости, состоящего из h1 getHeader(), самой новости getText(), автора статьи/новости getAuthor() и даты getDate() и ниже все комментарии к этой новости. Плюс нужно будет делать для каждой новости свой массив объектов комментариев, а то будет общий для каждой новости. Нужно доработать этот связывания их между собой
+	// тут останется перебирать массив объектов $news и вытягивать значения переменных для заполнения соответствующих полей каждого нового облака новости, состоящего из h1 getHeader(), самой новости getText(), автора статьи/новости getAuthor() и даты getDate() и ниже все комментарии к этой новости, которые берутся из массива объектов arr_comments при выборе совпадающих идентификаторов $newsId и $idNews
 	?>
 	</body>
 </html>
