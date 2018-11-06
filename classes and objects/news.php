@@ -1,16 +1,17 @@
 <?php 
-class News {
+class News 
+{
 	private $author;
-	private $newsheader;
+	private $title;
 	private $text;
-	private $date;
+	private $createdAt;
 	private $newsId;
 
-	public function __construct($author, $newsheader, $text){
+	public function __construct($author, $title, $text){
 		$this->author = $author;
-		$this->newsheader = $newsheader;
+		$this->title = $title;
 		$this->text = $text;
-		$this->date = date("m.d.y");
+		$this->createdAt = date("m.d.y");
 
 		$this->newsId = count($news)+1; //при условии, что $news нужно сделать доступным вездем, т.е. глобальным или что-то в этом роде
 	}
@@ -18,39 +19,41 @@ class News {
 	public function getAuthor() {
 		return $this->author;
 	}
-	public function getHeader() {
-		return $this->newsheader;
+	public function getTitle() {
+		return $this->title;
 	}
 	public function getText() {
 		return $this->text;
 	}
 	public function getDate() {
-		return $this->date;
+		return $this->createdAt;
 	}
 
 	public function getComments($arr_comments){
 		if(!empty($arr_comments)){
 			$comments = [];
 			foreach ($arr_comments as $comment) {
-				$comments[] = $comment->comment;
+				$comments[] = $comment->commentText;
 			}
 			return $comments;
 		}
 	}
 }
 
-class Comment {
-	private $comment;
+class Comments 
+{
+	private $commentText;
 	private $idNews;
+	private $comments = [];
 
 	public function __construct($comment, $idNews){
-		$this->comment = $comment;
+		$this->commentText = $comment;
 		$this->idNews = $idNews;
 	}
 }
 
 $arr_comments[] = new Comment('comment', 'idNews'); // не знаю, как лучше его передать в класс News, обратиться через global? сами значения будут заполняться при нажатии пользователем кнопки "отправить", где comment это набранный юзером текст, а idNews из скрытого поля самой новости, который берётся из объекта News->newsId
-$news[] = new News('Author', 'HeaderNews', 'Text'); 
+$news[] = new News('Author', 'Title', 'Text'); 
 ?>
 <html>
 	<head>
