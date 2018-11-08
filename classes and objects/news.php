@@ -45,16 +45,17 @@ class Comments
 {
     private $commentText;
     private $idNews;
-    private $comments = [];
+    private $commentsArr = [];
 
     public function __construct($comment, $idNews){
         $this->commentText = $comment;
         $this->idNews = $idNews;
+        $this->commentsArr[] = $comment;
     }
 }
 
-$arr_comments[] = new Comment('comment', 'idNews'); // не знаю, как лучше его передать в класс News, обратиться через global? сами значения будут заполняться при нажатии пользователем кнопки "отправить", где comment это набранный юзером текст, а idNews из скрытого поля самой новости, который берётся из объекта News->newsId
-$news[] = new News('Author', 'Title', 'Text'); 
+$newComment = new Comment('comment', 'idNews'); // не знаю, как лучше его передать в класс News, обратиться через global? сами значения будут заполняться при нажатии пользователем кнопки "отправить", где comment это набранный юзером текст, а idNews из скрытого поля самой новости, который берётся из объекта News->newsId
+$news[] = new News('Author', 'Title', 'Text'); // где данные будут передаваться из полей формы добавления новости
 ?>
 <html>
     <head>
