@@ -7,7 +7,7 @@ array_shift($files); // удаляем из массива '..'
 for($i=0; $i<sizeof($files); $i++){
 	$format = array_pop(explode(".",$files[$i]));             
 	if( $format == 'json'){
-		$text .= '<a href="list.php?test='.$i.'" title="открыть/скачать файл">Тест '.$i.'</a>;<br>';  //записываем все тесты для вывода списка
+		$text .= '<a href="test.php?test='.$i.'" title="открыть/скачать файл">Тест '.$i.'</a>;<br>';  //записываем все тесты для вывода списка
 	}
 }
 ?>

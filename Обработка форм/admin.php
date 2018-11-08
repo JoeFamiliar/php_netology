@@ -12,7 +12,7 @@ if(!empty($_FILES) && array_key_exists("json", $_FILES)) {
 	<head>
 	</head>
 	<body>
-		<form action="." method="POST" enctype="multipart/form-data">
+		<form action="admin.php" method="POST" enctype="multipart/form-data">
 			Загрузить тест:
 			<input type="file" name="json"><br>
 			<input type="submit" value="Отправить">
