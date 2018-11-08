@@ -1,7 +1,7 @@
 <?php
 $uploads_dir = '/tests';
 $text = '';
-if(!empty($_FILES) && array_key_exists(key: "json", $_FILES)) {
+if(!empty($_FILES) && array_key_exists("json", $_FILES)) {
 	$tmp_name = $_FILES['json']['tmp_name'][$key];
     $name = $_FILES['json']["name"][$key];
     move_uploaded_file($tmp_name, "$uploads_dir/$name");
