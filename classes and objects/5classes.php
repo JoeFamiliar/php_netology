@@ -1,5 +1,6 @@
 <?php 
-class Car {
+class Car 
+{
 	public $mark;
 	public $type;
 	public $color;
@@ -28,7 +29,8 @@ $toyota->view();
 
 
 
-class Tv {
+class Tv 
+{
 	public $mark;
 	public $size;
 	public $type;

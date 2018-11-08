@@ -8,7 +8,8 @@ class News
     private $newsId
     private static $newsCount = 0;
 
-    public function __construct($author, $title, $text){
+    public function __construct($author, $title, $text)
+    {
         $this->author = $author;
         $this->title = $title;
         $this->text = $text;
@@ -17,20 +18,25 @@ class News
         $this->newsId = self::$newsCount;
     }
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
-    public function getText() {
+    public function getText()
+    {
         return $this->text;
     }
-    public function getCreationDate() {
+    public function getCreationDate()
+    {
         return $this->createdAt;
     }
 
-    public function getComments($arrComments){
+    public function getComments($arrComments)
+    {
         if(!empty($arrComments)){
             $comments = [];
             foreach ($arrComments as $comment) {
@@ -47,7 +53,8 @@ class Comments
     private $idNews;
     private $commentsArr = [];
 
-    public function __construct($comment, $idNews){
+    public function __construct($comment, $idNews)
+    {
         $this->commentText = $comment;
         $this->idNews = $idNews;
         $this->commentsArr[] = $comment;
