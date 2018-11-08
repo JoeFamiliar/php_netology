@@ -3,19 +3,34 @@ class News
 {
     private $author;
     private $title;
-    private $text;
+    private $newsText;
     private $createdAt;
     private $newsId
     private static $newsCount = 0;
 
-    public function __construct($author, $title, $text)
+    public function __construct()
     {
-        $this->author = $author;
-        $this->title = $title;
-        $this->text = $text;
         $this->createdAt = date("m.d.y");
         self::$newsCount++;
         $this->newsId = self::$newsCount;
+    }
+
+    public function setAuthor(string $author)
+    {
+        $this->author = $author;
+    }
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+    }
+    public function setNewsText(string $newsText)
+    {
+        $this->newsText = $newsText;
+    }
+
+    public function addComment(string $text)
+    {
+        
     }
 
     public function getAuthor()
@@ -26,9 +41,9 @@ class News
     {
         return $this->title;
     }
-    public function getText()
+    public function getNewsText()
     {
-        return $this->text;
+        return $this->newsText;
     }
     public function getCreationDate()
     {
@@ -39,7 +54,8 @@ class News
     {
         if(!empty($arrComments)){
             $comments = [];
-            foreach ($arrComments as $comment) {
+            foreach ($arrComments as $comment) 
+            {
                 $comments[] = $comment->commentText;
             }
             return $comments;

@@ -1,14 +1,14 @@
 <?php
-$path = '/tests';
-$tests = scandir($path);
+$path = 'tests/';
+$files = scandir($path);
 $text = '';
-if(count($tests) > 0) {
-	foreach($tests as $test){
-		if(is_file("$path/$test")) {
-			$text .= $test . "<br>";
-		} else {
-			$text = "Тестовые файлы отсутствуют";
-		}
+array_shift($files); // удаляем из массива '.'
+array_shift($files); // удаляем из массива '..'
+for($i=0; $i<sizeof($files); $i++){
+	$format = array_pop(explode(".",$files[$i]));             
+	if( $format == 'json'){
+		$text .= '<a href="list.php?test='.$i.'" title="открыть/скачать файл">Тест '.$i.'</a>;<br>';  //записываем все тесты для вывода списка
+	}
 }
 ?>
 <html>
