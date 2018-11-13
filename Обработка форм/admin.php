@@ -9,6 +9,7 @@ if(!empty($_FILES)) {
     move_uploaded_file($tmp_name, "$uploads_dir/$name");
     $text = '<a href="list.php">Список тестов</a>';
 }
+
 ?>
 <html>
 	<head>
@@ -19,6 +20,7 @@ if(!empty($_FILES)) {
 			<input type="file" name="json"><br>
 			<input type="submit" value="Отправить">
 		</form>
+		<a href="list.php">Список тестов</a>
 		<?php echo $text; ?>
 	</body>
 </html>
