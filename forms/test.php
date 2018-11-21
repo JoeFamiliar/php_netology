@@ -34,8 +34,6 @@ if (!isset($_GET['test'])) {
 	</head>
 	<body>
 		<form action="result.php" method="POST">
-			Введите Ваше имя:
-			<input type="text" name="username">
  			<?php echo $testText; ?>
  			<br>
   			<input type="submit" value="Отправить">  

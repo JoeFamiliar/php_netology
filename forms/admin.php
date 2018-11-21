@@ -10,7 +10,6 @@ if(!empty($_FILES)) {
     } else {
     	$text = '<p>Ошибка! Неверный формат файла теста</p>';
     }
-    header('Location: list.php?text='.$text);
 }
 
 ?>
@@ -18,7 +17,7 @@ if(!empty($_FILES)) {
 	<head>
 	</head>
 	<body>
-		<?php //echo $text; ?>
+		<?php echo $text; ?>
 		<form action="admin.php" method="POST" enctype="multipart/form-data">
 			Загрузить тест:
 			<input type="file" name="json"><br>
