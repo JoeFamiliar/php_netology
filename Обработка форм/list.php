@@ -1,15 +1,11 @@
 <?php
-$path = 'tests/';
-$files = scandir($path);
+$path = 'tests' . DIRECTORY_SEPARATOR;
+$files = glob($path . '*.json');
 $text = '';
-array_shift($files); // удаляем из массива '.'
-array_shift($files); // удаляем из массива '..'
 for($i=0; $i<sizeof($files); $i++){
-	$format = array_pop(explode(".",$files[$i]));             
-	if( $format == 'json'){
-		$text .= '<a href="test.php?test='.$i.'" title="открыть/скачать файл">Тест '.$i.'</a>;<br>';  //записываем все тесты для вывода списка
-	}
+	$text .= '<p><a href="test.php?test='.$i.'" title="пройти тест">Тест '.$i.'</a>;</p>';  //записываем все тесты для вывода списка
 }
+$text .= '<p>Вы можете загрузить свой тест <a href="admin.php"><strong>здесь</strong></a></p>';
 ?>
 <html>
 	<head>

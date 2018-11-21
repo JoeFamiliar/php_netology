@@ -1,29 +1,30 @@
 <?php 
+$jsonPath = $_POST['test'];
+$json = file_get_contents($jsonPath);
+$test = json_decode($json, true);
 $result = '';
 $score = 0;
-if(!empty($_POST)) {
-	for($k = 0; $k < count($test); $k++) {
-		$try = $_POST['q'.$k];
-		if($try == '') {
-			$result .= 'Вы не ответили на '.$k.' вопрос. Вы ответили <strong>'.$_POST['q'.$k].'</strong><br>';
-		}
-		elseif ($try == $test[$k]['answer']) {
-			$score ++;
-			$result .= 'Вы правильно ответили на '.$k.' вопрос. Вы ответили <strong>'.$_POST['q'.$k].'</strong><br>';
-		}
-		else {
-			$result .= 'Вы неправильно ответили на '.$k.' вопрос. Вы ответили <strong>'.$_POST['q'.$k].'</strong><br>';
-		}
+
+for($k = 0; $k < count($test); $k++) {
+	if(!isset($_POST['q'.$k])) {
+	    $result .= '<p>Вы не ответили на '.$k.' вопрос.</p>';
 	}
-	$result .= 'Количество правильных ответов: <strong>'.$score.'</strong><br/><a href="list.php">Назад к списку тестов</a></p>';
-}		
+	elseif ($_POST['q'.$k] == $test[$k]['answer']) {
+		$score ++;
+		$result .= '<p>Вы правильно ответили на '.$k.' вопрос. Вы ответили <strong>'.$_POST['q'.$k].'</strong></p>';
+	}
+	else {
+		$result .= '<p>Вы неправильно ответили на '.$k.' вопрос. Вы ответили <strong>'.$_POST['q'.$k].'</strong></p>';
+	}
+}
+$result .= '<p>Количество правильных ответов: <strong>'.$score.'</strong></p><a href="list.php">Назад к списку тестов</a></p>';
+	
 ?>
 <html>
 	<head>
 	</head>
 	<body>
-		
-		<br>
+		<p></p>
 		<?php echo $result; ?>
 	</body>
 </html>
