@@ -6,12 +6,11 @@ function checkUserPass($user, $pass)
 	$path = 'users' . DIRECTORY_SEPARATOR;
 	$files = glob($path . '*.json');
 	foreach ($files as $userFile) {
-		$userName = str_replace('users/', '', $userFile);
-		$userName = explode('.', $userFile);
+		$tempName = str_replace('users/', '', $userFile);
+		$userName = explode('.', $tempName);
 		if($userName[0] == $user) {
 			$content = file_get_contents($userFile);
 			$userJson = json_decode($content, true);
-			print_r($userJson);
 			if($userJson['password'] == $pass) {
 				return true;
 			}
