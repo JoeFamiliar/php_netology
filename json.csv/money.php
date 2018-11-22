@@ -1,5 +1,5 @@
 <?php
-$row = 1;
+
 $handle = fopen("money.csv", "w");
 
 if($handle !== FALSE){
@@ -22,8 +22,9 @@ if($sum === "--today") {
 
 $today = date("Y-m-d");
 $row = [$sum, $target, $today];
+// записать в csv
 fputcsv($handle, $row);
-  // записать в csv
+  
 $text = "Мы потратили $sum р. на $target $today";
 }
 
