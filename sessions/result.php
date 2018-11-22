@@ -12,7 +12,7 @@ if(isset($_SESSION['username']) || isset($_SESSION['guest'])) {
 	} else {
 		$text = $_SESSION['guest'];
 	}
-	$result = $_POST['username'].', ';
+	$result = $text.', ';
 	$score = 0;
 
 	for($k = 0; $k < count($test); $k++) {
