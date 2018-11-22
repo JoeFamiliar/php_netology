@@ -1,27 +1,22 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])) {
-	if(!isset($_SESSION['guest'])) {
-		header('HTTP/1.0 403 Unauthorized');
-		exit;
-	} else {
-		
+if(isset($_SESSION['username'])) { // если юзер, то всё ок
+	$uploads_dir = 'tests' . DIRECTORY_SEPARATOR;
+	$text = '';
+	if(!empty($_FILES)) {
+	    $filename = $_FILES['json']["name"];
+	    if(preg_match("/\.(json)$/", $filename)){
+	    	$tmp_name = $_FILES['json']['tmp_name'];
+	    	move_uploaded_file($tmp_name, "$uploads_dir/$filename");
+	    	$text = '<p>Ваш тест загружен успешно</p>';
+	    } else {
+	    	$text = '<p>Ошибка! Неверный формат файла теста</p>';
+	    }
+	    header('Location: list.php?text='.$text);
 	}
-}
-
-
-$uploads_dir = 'tests' . DIRECTORY_SEPARATOR;
-$text = '';
-if(!empty($_FILES)) {
-    $filename = $_FILES['json']["name"];
-    if(preg_match("/\.(json)$/", $filename)){
-    	$tmp_name = $_FILES['json']['tmp_name'];
-    	move_uploaded_file($tmp_name, "$uploads_dir/$filename");
-    	$text = '<p>Ваш тест загружен успешно</p>';
-    } else {
-    	$text = '<p>Ошибка! Неверный формат файла теста</p>';
-    }
-    header('Location: list.php?text='.$text);
+} else  { //если не юзер, а гость или вообще никто - кыш
+	header('HTTP/1.0 403 Unauthorized');
+	exit;
 }
 
 ?>
