@@ -7,7 +7,11 @@ if(isset($_SESSION['username']) || isset($_SESSION['guest'])) {
 	$jsonPath = $_POST['test'];
 	$json = file_get_contents($jsonPath);
 	$test = json_decode($json, true);
-	$text = $_POST['username'];
+	if (isset($_SESSION['username'])){
+		$text = $_SESSION['username'];
+	} else {
+		$text = $_SESSION['guest']];
+	}
 	$result = $_POST['username'].', ';
 	$score = 0;
 
