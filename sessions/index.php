@@ -19,14 +19,14 @@ function checkUserPass($user, $pass)
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if(isset($_POST['username']) && isset($_POST['password'])) { // если юзер, то в админку с правами
+	if(isset($_POST['username']) && !empty($_POST['password'])) { // если юзер, то в админку с правами
 		if(checkUserPass($_POST['username'], $_POST['password'])) {
 			$_SESSION['username'] = $_POST['username'];
 			header('Location: admin.php');
 		} else {
 			header('Location: index.php');
 		}
-	} elseif(isset($_POST['username']) && !isset($_POST['password'])) { // eсли без пароля, то гость и сразу на список тестов, минуя админку для добавления тестов
+	} elseif(isset($_POST['username']) && empty($_POST['password'])) { // eсли без пароля, то гость и сразу на список тестов, минуя админку для добавления тестов
 		$_SESSION['guest'] = $_POST['username'];
 		header('Location: list.php');
 	} else { // если ничего не ввели или ввели неверно, то обратно на index.php

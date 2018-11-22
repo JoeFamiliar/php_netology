@@ -1,8 +1,10 @@
 <?php
 session_start();
 if(isset($_SESSION['username']) || isset($_SESSION['guest'])) {
-
-	$text = $_GET['text'];
+	$text = '';
+	if(isset($_GET['text'])){
+		$text = $_GET['text'];
+	}
 	$path = 'tests' . DIRECTORY_SEPARATOR;
 	$files = glob($path . '*.json');
 	for($i=0; $i<sizeof($files); $i++){
