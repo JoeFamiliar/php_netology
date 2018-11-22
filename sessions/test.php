@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['username'])) {
+	header('HTTP/1.0 403 Unauthorized');
+	exit;
+}
+
 $path = 'tests' . DIRECTORY_SEPARATOR;
 $files = glob($path . '*.json');
 
@@ -34,8 +41,6 @@ if (!isset($_GET['test'])) {
 	</head>
 	<body>
 		<form action="result.php" method="POST">
-			Введите Ваше имя:
-			<input type="text" name="username">
  			<?php echo $testText; ?>
  			<br>
   			<input type="submit" value="Отправить">  

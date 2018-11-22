@@ -1,4 +1,15 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])) {
+	if(!isset($_SESSION['guest'])) {
+		header('HTTP/1.0 403 Unauthorized');
+		exit;
+	} else {
+		
+	}
+}
+
+
 $uploads_dir = 'tests' . DIRECTORY_SEPARATOR;
 $text = '';
 if(!empty($_FILES)) {

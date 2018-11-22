@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])) {
+	header('HTTP/1.0 403 Unauthorized');
+	exit;
+}
+
 $text = $_GET['text'];
 $path = 'tests' . DIRECTORY_SEPARATOR;
 $files = glob($path . '*.json');

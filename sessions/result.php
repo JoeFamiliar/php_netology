@@ -1,4 +1,11 @@
 <?php 
+
+session_start();
+if(!isset($_SESSION['username'])) {
+	header('HTTP/1.0 403 Unauthorized');
+	exit;
+}
+
 $jsonPath = $_POST['test'];
 $json = file_get_contents($jsonPath);
 $test = json_decode($json, true);
