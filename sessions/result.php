@@ -28,7 +28,7 @@ if(isset($_SESSION['username']) || isset($_SESSION['guest'])) {
 		}
 	}
 	$result .= '<p>Количество правильных ответов: <strong>'.$score.'</strong></p><a href="list.php">Назад к списку тестов</a></p>';
-	$result .= '<img src="img.php?username='.$text.'" />';
+	$result .= '<img src="sert.php?username='.$text.'" />';
 	
 
 // пользовательская функция

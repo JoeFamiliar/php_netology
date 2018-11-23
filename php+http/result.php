@@ -19,7 +19,7 @@ for($k = 0; $k < count($test); $k++) {
 	}
 }
 $result .= '<p>Количество правильных ответов: <strong>'.$score.'</strong></p><a href="list.php">Назад к списку тестов</a></p>';
-$result .= '<img src="img.php?username='.$text.'" />';
+$result .= '<img src="sert.php?username='.$text.'" />';
 	
 
 // пользовательская функция
