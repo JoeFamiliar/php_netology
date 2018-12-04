@@ -1,5 +1,9 @@
 <?php
-$text = $_GET['username'];
+if (isset($_GET['text'])) {
+	$text = $_GET['text'];
+} else {
+	$text = 'John Doe';
+}
 $image = imagecreatetruecolor(875, 655);
 $backColor = imagecolorallocate($image, 35, 35, 35);
 $textColor = imagecolorallocate($image, 0, 200, 200);

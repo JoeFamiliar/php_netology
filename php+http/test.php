@@ -10,22 +10,26 @@ if (!isset($_GET['test'])) {
 	}
 	exit;
 } else {
+	if(isset($files[$_GET['test']])){
 
-	$jsonPath = $files[$_GET['test']];
-	$json = file_get_contents($jsonPath);
-	$test = json_decode($json, true);
+		$jsonPath = $files[$_GET['test']];
+		$json = file_get_contents($jsonPath);
+		$test = json_decode($json, true);
 
-	$testText = '';
-	for($k = 0; $k < count($test); $k++) {
-		$testText .= '<fieldset>';
-		$testText .= '<legend>'.$test[$k]['Question'].'</legend>';
-		for($i = 0; $i < count($test[$k]['variants']); $i++) {
-			$testText .= '<label><input type="radio" name="q'.$k.'" value="'.$test[$k]['variants'][$i].'">'.$test[$k]['variants'][$i].'</label>';
+		$testText = '';
+		for($k = 0; $k < count($test); $k++) {
+			$testText .= '<fieldset>';
+			$testText .= '<legend>'.$test[$k]['Question'].'</legend>';
+			for($i = 0; $i < count($test[$k]['variants']); $i++) {
+				$testText .= '<label><input type="radio" name="q'.$k.'" value="'.$test[$k]['variants'][$i].'">'.$test[$k]['variants'][$i].'</label>';
+			}
+			$testText .= '</fieldset>';
+
 		}
-		$testText .= '</fieldset>';
-
+		$testText .= '<input type="hidden" name="test" value="'.$jsonPath.'">';
+	} else {
+		header('Location: list.php?text=Такого теста не существует');
 	}
-	$testText .= '<input type="hidden" name="test" value="'.$jsonPath.'">';
 }				
 ?>
 
