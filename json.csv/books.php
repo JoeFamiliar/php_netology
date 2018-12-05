@@ -3,7 +3,7 @@
 if (!empty($argv[1])) {
     
     $filename = "https://www.googleapis.com/books/v1/volumes?q=";
-    $handle = fopen("books.csv", "w");
+    $handle = fopen('books.csv', 'w');
 
     if ($handle !== FALSE) 
     {
