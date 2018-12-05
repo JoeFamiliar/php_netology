@@ -44,11 +44,22 @@ if (!empty($argv[1])) {
             echo ' - Unknown error';
         break;
     }
-
+   
     foreach ($json['items'] as $searchRes) {
-    	$row = [$searchRes['id'], $searchRes['volumeInfo']['title'], implode(', ', $searchRes['volumeInfo']['authors'])];
+        if(is_array($searchRes['volumeInfo']['authors'])){
+            if(count($searchRes['volumeInfo']['authors']) < 2) {
+                $authors = $searchRes['volumeInfo']['authors'][0];
+            } else {
+                $authors = implode(', ', $searchRes['volumeInfo']['authors']);
+            } 
+        } else {
+            $authors = $searchRes['volumeInfo']['authors'][0];
+        }
+    	$row = [$searchRes['id'], $searchRes['volumeInfo']['title'], $authors];
     	fputcsv($handle, $row);
+        print_r($row);
     }
+    fclose($handle);
 
 } else {
     exit('Название книги не было передано');
