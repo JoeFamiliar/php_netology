@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 	}
 	$result .= '<p>Количество правильных ответов: <strong>'.$score.'</strong></p><a href="list.php">Назад к списку тестов</a></p>';
-	$result .= '<img src="sert.php?username='.$text.'" />';
+	$result .= '<img src="sert.php?username='.$_POST['username'].'" />';
 } else {
 	header('Location: list.php?text=Такого теста не существует');
 }
