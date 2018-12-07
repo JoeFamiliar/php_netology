@@ -28,7 +28,7 @@ if (!isset($_GET['test'])) {
 		}
 		$testText .= '<input type="hidden" name="test" value="'.$jsonPath.'">';
 	} else {
-		header('Location: list.php?text=Такого теста не существует');
+		header("HTTP/1.0 404 Not Found");
 	}
 }				
 ?>
