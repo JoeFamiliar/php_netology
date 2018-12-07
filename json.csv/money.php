@@ -1,7 +1,7 @@
 <?php
 if (!empty($argv[1])) {
 
-	$handle = fopen('money.csv', 'w');
+	$handle = fopen('money.csv', 'w+');
 
 	if($handle !== FALSE){
 		$data = fgetcsv($handle, 1000, ",");
