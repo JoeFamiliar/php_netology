@@ -38,7 +38,7 @@ if (!empty($argv[1])) {
 
 	} else {
 
-		$handle = fopen('money.csv', 'a+');
+		$handle = fopen('money.csv', 'a');
 
 		if($handle !== FALSE){
 			$data = fgetcsv($handle, 1000, ",");
@@ -50,7 +50,7 @@ if (!empty($argv[1])) {
 		// записать в csv
 		fputcsv($handle, $row);
 		fclose($handle);
-		
+
 		echo "Добавлена строка $today, $sum, $target";
 	}
 
